@@ -1,0 +1,16 @@
+SMS_Test.MainActivity, SMS_Test;md55d545f2b25f5efc7bcda408f2fb94909.MainActivity
+SMS_Test.MainActivity, SMS_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55d545f2b25f5efc7bcda408f2fb94909.MainActivity
+SMS_Test.MainActivity;md55d545f2b25f5efc7bcda408f2fb94909.MainActivity
+sms_test.MainActivity;md55d545f2b25f5efc7bcda408f2fb94909.MainActivity
+SMS_Test.TransactionHistoryActivity, SMS_Test;md55d545f2b25f5efc7bcda408f2fb94909.TransactionHistoryActivity
+SMS_Test.TransactionHistoryActivity, SMS_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55d545f2b25f5efc7bcda408f2fb94909.TransactionHistoryActivity
+SMS_Test.TransactionHistoryActivity;md55d545f2b25f5efc7bcda408f2fb94909.TransactionHistoryActivity
+sms_test.TransactionHistoryActivity;md55d545f2b25f5efc7bcda408f2fb94909.TransactionHistoryActivity
+SMS_Test.ViewHolder, SMS_Test;md55d545f2b25f5efc7bcda408f2fb94909.ViewHolder
+SMS_Test.ViewHolder, SMS_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55d545f2b25f5efc7bcda408f2fb94909.ViewHolder
+SMS_Test.ViewHolder;md55d545f2b25f5efc7bcda408f2fb94909.ViewHolder
+sms_test.ViewHolder;md55d545f2b25f5efc7bcda408f2fb94909.ViewHolder
+SMS_Test.SMSAdapter, SMS_Test;md55d545f2b25f5efc7bcda408f2fb94909.SMSAdapter
+SMS_Test.SMSAdapter, SMS_Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md55d545f2b25f5efc7bcda408f2fb94909.SMSAdapter
+SMS_Test.SMSAdapter;md55d545f2b25f5efc7bcda408f2fb94909.SMSAdapter
+sms_test.SMSAdapter;md55d545f2b25f5efc7bcda408f2fb94909.SMSAdapter

@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WhackAMonkey.ViewModel;assembly=WhackAMonkey"   
+             xmlns:infrastructure="clr-namespace:XamarinUniversity.Infrastructure;assembly=XamU.Infrastructure"
+             xmlns:cvt="clr-namespace:WhackAMonkey.Converters;assembly=WhackAMonkey"
+             x:Class="WhackAMonkey.PlayersPage"
+             x:Name="PlayerPage"
+             >
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="5, 20, 0, 0"
+                Android="0, 0, 0, 0"
+                WinPhone="0, 0, 0, 0" />
+  </ContentPage.Padding>
+  <ContentPage.Resources>
+      <ResourceDictionary>
+        <cvt:ItemTappedConverter  x:Key="itemTappedConverter" />
+      </ResourceDictionary>    
+    </ContentPage.Resources>
+  <ListView x:Name="myList" ItemsSource="{Binding GroupedPlayers}"
+                            RowHeight="40"
+                            SeparatorVisibility="Default"
+                            SeparatorColor="#FFAAAA"                           
+                            SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                            IsGroupingEnabled="True"
+                            GroupDisplayBinding="{Binding Key}"
+                            GroupShortNameBinding="{Binding Key}"   
+                            IsRefreshing="{Binding IsRefreshing}"
+                            IsPullToRefreshEnabled="True"
+                            RefreshCommand="{Binding RefreshCommand}"
+                                        >
+    <ListView.Header>
+        <ContentView Padding="0,5" BackgroundColor="#3498db">
+            <Label FontSize="Large" TextColor="Fuchsia"
+                   Text="Players" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+        </ContentView>
+    </ListView.Header>
+    
+    <ListView.Behaviors>
+        <infrastructure:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ChoosePlayerCommand }" EventArgsConverter="{StaticResource itemTappedConverter}" />
+      </ListView.Behaviors>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <ContentView x:Name="cellStack" BackgroundColor="White">
+            <Label Text="{Binding PlayerName}" FontSize="20" TextColor="Blue"/>
+          </ContentView>
+        <ViewCell.ContextActions>
+                <MenuItem Text="Delete" Command="{Binding  BindingContext.DeleteCommand,Source={x:Reference PlayerPage}}" CommandParameter="{Binding .}" IsDestructive="true" />
+        </ViewCell.ContextActions>
+        </ViewCell>
+      
+      </DataTemplate>
+    </ListView.ItemTemplate>
+
+  </ListView>
+
+</ContentPage>

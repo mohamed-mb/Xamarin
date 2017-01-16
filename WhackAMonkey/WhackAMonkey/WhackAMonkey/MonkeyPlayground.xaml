@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WhackAMonkey.MonkeyPlayground"
+             xmlns:cvt="clr-namespace:WhackAMonkey.Converters;assembly=WhackAMonkey"
+             Title="Playground">
+ <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="0, 20, 0, 0"
+                Android="0, 0, 0, 0"
+                WinPhone="0, 0, 0, 0" />
+  </ContentPage.Padding>
+  
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <cvt:NumberToStringFormatConverter x:Key="myConverter"/>
+      <x:String x:Key="score">Score</x:String>
+      <Style TargetType="Image" x:Key="ImageStyle">
+        <Setter Property="WidthRequest" Value="75"/>
+        <Setter Property="Aspect" Value="AspectFit"/>
+      </Style>
+      
+      <Style TargetType="Button" x:Key="FooterButtons">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Center"/>
+      </Style>
+
+      <Style TargetType="Label" x:Key="HeaderLabels" BasedOn="{StaticResource AllLabels}">
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+      </Style>
+    </ResourceDictionary>
+      
+  </ContentPage.Resources>
+  <Grid x:Name="playgroundGrid">
+    <Grid.RowDefinitions Grid.RowSpacing="2" Grid.ColumnSpacing="2">
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="100"/>
+      <RowDefinition Height="100"/>
+      <RowDefinition Height="100"/>
+      <RowDefinition Height="100"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>      
+    </Grid.ColumnDefinitions>
+    <!--Creating Images-->
+    <Label Text="{Binding PlayerName}" Grid.Row="0" Grid.Column="0" Style="{StaticResource HeaderLabels}" />
+    <Label Text="{Binding Level,StringFormat='Level:{0}'}" Grid.Row="0" Grid.Column="1" Style="{StaticResource HeaderLabels}"/>
+    <Label Text="{Binding Score,Converter={StaticResource myConverter}, ConverterParameter=Score}" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Style="{StaticResource HeaderLabels}"/>
+    
+    <Label Text="{Binding Timer,StringFormat='Timer:{0}'}" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" VerticalOptions="Center" Style="{StaticResource HeaderLabels}" />
+<!--Creata a grid of Images in the code behind-->   
+
+    <Button Text="Restart" Grid.Row="6" Grid.Column="0" Command="{Binding RestartButtonCommand}" Style="{StaticResource FooterButtons}"/>
+    <Label Text="{Binding Status}" Grid.ColumnSpan="2" Grid.Row="6" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource AllLabels}">
+      <Label.Triggers>
+        <DataTrigger TargetType="Label"
+                     Binding="{Binding IsHit}"
+                     Value="True">
+          <Setter Property="TextColor" Value="Green"/>          
+        </DataTrigger>
+        <DataTrigger TargetType="Label"
+                     Binding="{Binding IsHit}"
+                     Value="False">
+          <Setter Property="TextColor" Value="Red"/>
+        </DataTrigger>
+      </Label.Triggers>
+    </Label>
+    <Button Text="EndGame" Grid.Row="6" Grid.Column="3" Style="{StaticResource FooterButtons}" Command="{Binding EndGameCommand}" />
+  </Grid>
+</ContentPage>

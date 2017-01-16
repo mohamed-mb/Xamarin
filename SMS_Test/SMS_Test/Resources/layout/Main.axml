@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:p1="http://schemas.android.com/apk/res/android"
+    p1:orientation="vertical"
+    p1:layout_width="match_parent"
+    p1:layout_height="match_parent"
+    p1:id="@+id/linearLayout1"
+    p1:minWidth="25px"
+    p1:minHeight="25px">
+    <TextView
+        p1:text="Text"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/textView_availableBalance"
+        p1:textSize="20dp"
+        p1:textAlignment="center"
+        p1:layout_gravity="center"
+        p1:gravity="center" />
+    <Button
+        p1:text="Transaction History"
+        p1:layout_width="match_parent"
+        p1:layout_height="wrap_content"
+        p1:id="@+id/button_transactionHistory" />
+</LinearLayout>

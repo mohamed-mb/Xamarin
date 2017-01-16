@@ -1,0 +1,1 @@
+﻿Whack-A-Game is a Tap Based Game. Touch a Monkey and Score Points

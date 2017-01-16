@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:WhackAMonkey.ViewModel;assembly=WhackAMonkey"
+             x:Class="WhackAMonkey.ScorePage">
+  <ContentPage.Padding>
+    <OnPlatform x:TypeArguments="Thickness"
+                iOS="5, 20, 0, 0"
+                Android="0, 0, 0, 0"
+                WinPhone="0, 0, 0, 0" />
+  </ContentPage.Padding>
+  <!--<Grid>-->
+  <ListView x:Name="myList" ItemsSource="{Binding Players}" 
+                            RowHeight="60"
+                            SeparatorVisibility="Default"
+                            SeparatorColor="#FF00AA"
+                            CachingStrategy="RecycleElement"
+    >
+    <ListView.Header>
+      <ContentView Padding="0,5" BackgroundColor="#3498db">
+        <Label FontSize="Large" TextColor="Maroon"
+               Text="Scores" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+      </ContentView>
+    </ListView.Header>
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout x:Name="cellStack" Orientation="Vertical">
+            <Label Text="{Binding PlayerName}" FontSize="20" TextColor="Blue" HeightRequest="40"/>
+            <Label Text="{Binding Score}" FontSize="15" TextColor="Red"  HeightRequest="20"/>        
+          </StackLayout>          
+        </ViewCell>
+      </DataTemplate>      
+    </ListView.ItemTemplate> 
+  </ListView>
+  <!--
+  <ActivityIndicator IsRunning="{Binding IsTrueIndicator}"
+            HorizontalOptions="Center"
+            VerticalOptions="Center" />
+  </Grid>-->
+</ContentPage>
